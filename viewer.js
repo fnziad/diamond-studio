@@ -417,9 +417,29 @@ async function init() {
     "normal",
     new THREE.Float32BufferAttribute(DATA.normals, 3),
   );
-  geometry.setAttribute("uv", new THREE.Float32BufferAttribute(DATA.uv, 2));
+  const positions = geometry.getAttribute("position");
+  const uv = new Float32Array(positions.count * 2);
+  for (let i = 0; i < positions.count; i++) {
+    uv[i * 2] = (positions.getX(i) + 100) / 200;
+    uv[i * 2 + 1] = (positions.getY(i) + 100) / 200;
+  }
+  geometry.setAttribute("uv", new THREE.BufferAttribute(uv, 2));
+  const textureSize = 256;
+  const textureData = new Uint8Array(textureSize * textureSize * 4);
+  let seed = 27;
+  for (let i = 0; i < textureSize * textureSize; i++) {
+    seed = (seed * 1664525 + 1013904223) >>> 0;
+    const value = 115 + (seed >>> 28);
+    textureData.set([value, value, value, 255], i * 4);
+  }
+  const pores = new THREE.DataTexture(textureData, textureSize, textureSize);
+  pores.wrapS = THREE.RepeatWrapping;
+  pores.wrapT = THREE.RepeatWrapping;
+  pores.repeat.set(4, 4);
+  pores.needsUpdate = true;
   photoMaterial = new THREE.MeshPhysicalMaterial({
     color: 0xc39178, roughness: 0.75, metalness: 0,
+    bumpMap: pores, bumpScale: 0.015,
     sheen: 0.12, sheenColor: new THREE.Color(0xe5b7a0),
     envMapIntensity: 0.48,
   });

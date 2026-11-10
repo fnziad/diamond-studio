@@ -140,8 +140,8 @@ function diamond(shape, length, appearance = {}) {
   const material = new THREE.MeshPhysicalMaterial({
     color: 0xf5f8ff,
     metalness: 0,
-    roughness: 0.015,
-    transmission: 0.58,
+    roughness: 0.025,
+    transmission: 0.9,
     thickness: length * 0.65,
     ior: 2.42,
     dispersion: appearance.fire ?? 0.055,
