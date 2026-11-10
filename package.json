@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "esbuild": "^0.25.11",
+    "mediabunny": "^1.65.1",
+    "pdfjs-dist": "^4.10.38",
+    "three": "^0.180.0"
+  }
+}
