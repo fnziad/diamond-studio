@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; connect-src 'none'; font-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Diamond inspector · Diamond Studio</title>
+<style>__CSS__</style>
+</head>
+<body>
+<header><div><h1>Diamond inspector</h1><p>Study a diamond on its own or in a ring.</p></div><span class="private">LOCAL &amp; PRIVATE</span></header>
+<nav class="studio-nav" aria-label="Studios"><a href="index.html">Ring try-on</a><a aria-current="page" href="diamond-inspector.html">Diamond inspector</a></nav>
+<main>
+<section class="stage" data-background="black" aria-label="Diamond preview">
+<div class="stage-label"><strong id="preview-label">Loose diamond</strong><span>Drag to rotate · Scroll to zoom</span></div>
+<div id="viewport"><div id="loading" role="status">Preparing the diamond…</div><button type="button" disabled id="animate" class="motion-button" aria-pressed="false">Play light sweep</button></div>
+<div class="viewbar" aria-label="Diamond views"><button type="button" disabled data-view="face" aria-pressed="true">Face</button><button type="button" disabled data-view="side" aria-pressed="false">Side</button><button type="button" disabled data-view="pavilion" aria-pressed="false">Pavilion</button></div>
+<p class="hint">Focus the diamond and use arrow keys to rotate, + and − to zoom.</p>
+</section>
+<aside aria-label="Diamond inspection controls">
+<h2>Diamond details</h2>
+<div class="control"><label for="report-file">Import IGI report · PDF</label><input type="file" id="report-file" accept="application/pdf"><p class="help" id="report-status">Text-based reports are read on this device. Review extracted values.</p></div>
+<div class="control"><label for="presentation">Presentation</label><select id="presentation"><option value="loose">Loose diamond</option><option value="ring">Diamond in a ring</option></select></div>
+<div class="control ring-option" hidden><label for="setting">Ring setting</label><select id="setting"><option value="solitaire">Solitaire</option><option value="halo">Halo</option><option value="pave">Pavé shoulders</option><option value="three">Three stone</option></select></div>
+<div class="control ring-option" hidden><label for="metal">Ring metal</label><select id="metal"><option value="gold">Yellow gold</option><option value="white">White</option><option value="rose">Rose gold</option></select></div>
+<div class="control"><label for="shape">Shape</label><select id="shape"><option>Round</option><option>Oval</option><option>Pear</option><option>Marquise</option><option>Emerald</option><option>Princess</option><option>Cushion</option><option>Radiant</option><option>Asscher</option><option>Heart</option></select></div>
+<div class="control"><label for="carat">Weight · carats</label><input type="number" id="carat" min="0.1" max="8" step="0.01" value="1"><p class="help" id="dimension-help">Weight estimates size. Enter a measured length for a closer scale.</p></div>
+<div class="control"><label for="length">Measured length · mm</label><input type="number" id="length" min="2" max="20" step="0.01" value="6.50"></div>
+<div class="grade-grid">
+<div class="control"><label for="color">Color grade</label><input id="color" placeholder="e.g. E"></div>
+<div class="control"><label for="clarity">Clarity grade</label><input id="clarity" placeholder="e.g. VS1"></div>
+<div class="control"><label for="cut">Cut grade</label><input id="cut" placeholder="e.g. Ideal"></div>
+</div>
+<p class="help">Grades are report details. Inclusions and the precise optical behavior of a specific stone are not reconstructed. Interior reflections are illustrative.</p>
+<div class="rule"></div><h2>Light &amp; background</h2>
+<div class="control"><label for="preset">Lighting</label><select id="preset"><option value="soft">Soft studio</option><option value="sunny">Sunny day</option><option value="evening">Date night</option><option value="spot">Spotlight</option><option value="back">Backlight</option></select></div>
+<div class="control"><label for="background">Background</label><select id="background"><option value="black">Black</option><option value="tray">Blue grey</option><option value="white">White</option></select></div>
+<div class="control"><label for="angle">Light direction <output id="angle-value">−30°</output></label><input type="range" id="angle" min="-180" max="180" value="-30"></div>
+<div class="control"><label for="front">Front light <output id="front-value">1.65×</output></label><input type="range" id="front" min="0" max="4" step="0.05" value="1.65"></div>
+<div class="control"><label for="back">Back light <output id="back-value">0.65×</output></label><input type="range" id="back" min="0" max="4" step="0.05" value="0.65"></div>
+<div class="control"><label for="fire">Color flash intensity</label><input type="range" id="fire" min="0" max="0.15" step="0.005" value="0.055"></div>
+<div class="control"><label for="sparkle">Reflection intensity</label><input type="range" id="sparkle" min="0" max="5" step="0.1" value="2.8"></div>
+<div class="rule"></div><button type="button" disabled id="save" class="primary">Save current view · PNG</button><p id="status" role="status" aria-live="polite">All controls run locally.</p>
+</aside>
+</main>
+<footer class="footnote">A visual approximation for comparing appearance. Diamond light performance and inclusions cannot be determined from these controls.</footer>
+<script>__JS__</script></body></html>

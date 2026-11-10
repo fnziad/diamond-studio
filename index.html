@@ -501,9 +501,20 @@ button:disabled {
     outline: 2px solid Highlight;
   }
 }
+
+.studio-nav { display: flex; gap: 22px; padding: 10px 34px; background: #fff; border-bottom: 1px solid var(--border); }
+.studio-nav a { color: var(--foreground); text-decoration: none; padding: 4px 0; }
+.studio-nav a[aria-current="page"] { color: var(--primary); border-bottom: 2px solid var(--primary); font-weight: 600; }
+aside select, aside input[type="number"], aside input:not([type]) {
+  width: 100%; margin-top: 6px; padding: 9px 10px; border: 1px solid var(--border);
+  border-radius: var(--radius); background: #fff; color: var(--foreground); font: inherit;
+}
+aside input[type="file"] { max-width: 100%; margin-top: 8px; font: inherit; }
+.grade-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.control label output { float: right; font-variant-numeric: tabular-nums; }
 </style></head>
 <body><header><div><h1>Diamond studio</h1><p>Explore stones, settings and light.</p></div><span class="private">LOCAL &amp; PRIVATE</span></header>
-<main><section class="stage" aria-label="Interactive hand and ring"><div class="stage-label"><strong>Generic hand</strong><span>Adjustable hand model</span></div><div id="viewport"><div id="loading" role="status">Preparing her hand…</div><button type="button" disabled id="animate-scene" class="motion-button" aria-pressed="false">Play motion</button></div><div class="viewbar" aria-label="Camera views"><button type="button" disabled data-view="back" aria-pressed="true">Back of hand</button><button type="button" disabled data-view="palm" aria-pressed="false">Palm</button><button type="button" disabled data-view="side" aria-pressed="false">Side</button><button type="button" disabled data-view="ring" aria-pressed="false">Ring close-up</button></div><p class="hint">Drag to rotate · Scroll or pinch to zoom · Use the view buttons for fixed angles</p></section>
+<nav class="studio-nav" aria-label="Studios"><a aria-current="page" href="index.html">Ring try-on</a><a href="diamond-inspector.html">Diamond inspector</a></nav><main><section class="stage" aria-label="Interactive hand and ring"><div class="stage-label"><strong>Generic hand</strong><span>Adjustable hand model</span></div><div id="viewport"><div id="loading" role="status">Preparing her hand…</div><button type="button" disabled id="animate-scene" class="motion-button" aria-pressed="false">Play motion</button></div><div class="viewbar" aria-label="Camera views"><button type="button" disabled data-view="back" aria-pressed="true">Back of hand</button><button type="button" disabled data-view="palm" aria-pressed="false">Palm</button><button type="button" disabled data-view="side" aria-pressed="false">Side</button><button type="button" disabled data-view="ring" aria-pressed="false">Ring close-up</button></div><p class="hint">Drag to rotate · Scroll or pinch to zoom · Use the view buttons for fixed angles</p></section>
 <aside aria-label="Ring adjustments"><h2>Try a ring</h2><p>Adjust the hand and ring to explore the look.</p>
 <div class="editor-tabs" role="tablist" aria-label="Try-on controls"><button type="button" disabled role="tab" id="tab-ring" data-panel="ring" aria-selected="true" aria-controls="panel-ring" tabindex="0">Ring</button><button type="button" disabled role="tab" id="tab-bands" data-panel="bands" aria-selected="false" aria-controls="panel-bands" tabindex="-1">Bands</button><button type="button" disabled role="tab" id="tab-scene" data-panel="scene" aria-selected="false" aria-controls="panel-scene" tabindex="-1">Scene</button></div><section role="tabpanel" id="panel-ring" aria-labelledby="tab-ring"><div class="control"><label for="report-file">Import IGI PDF</label><input type="file" id="report-file" accept="application/pdf"><p class="help" id="report-status">Text-based reports are read locally. Review all extracted values.</p></div>
 <div class="control"><label for="carat">Diamond weight (carats)</label><input type="number" id="carat" min="0.1" max="8" step="0.01" value="1"><p class="help" id="diamond-note">Weight estimates size until dimensions are entered.</p></div>

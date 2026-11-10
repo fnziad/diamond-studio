@@ -136,7 +136,7 @@ export function gemGeometry(shape, length) {
   return flat;
 }
 
-function diamond(shape, length, appearance = {}) {
+export function diamond(shape, length, appearance = {}) {
   const material = new THREE.MeshPhysicalMaterial({
     color: 0xf5f8ff,
     metalness: 0,

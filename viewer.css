@@ -500,3 +500,14 @@ button:disabled {
     outline: 2px solid Highlight;
   }
 }
+
+.studio-nav { display: flex; gap: 22px; padding: 10px 34px; background: #fff; border-bottom: 1px solid var(--border); }
+.studio-nav a { color: var(--foreground); text-decoration: none; padding: 4px 0; }
+.studio-nav a[aria-current="page"] { color: var(--primary); border-bottom: 2px solid var(--primary); font-weight: 600; }
+aside select, aside input[type="number"], aside input:not([type]) {
+  width: 100%; margin-top: 6px; padding: 9px 10px; border: 1px solid var(--border);
+  border-radius: var(--radius); background: #fff; color: var(--foreground); font: inherit;
+}
+aside input[type="file"] { max-width: 100%; margin-top: 8px; font: inherit; }
+.grade-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.control label output { float: right; font-variant-numeric: tabular-nums; }
